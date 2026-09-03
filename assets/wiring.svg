@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08131f"/>
+      <stop offset="1" stop-color="#03070b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="620" rx="28" fill="url(#bg)"/>
+  <text x="60" y="70" fill="#e9f6ff" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="5">WIRING</text>
+  <text x="1140" y="68" text-anchor="end" fill="#52ffd0" font-family="Inter,Arial,sans-serif" font-size="17" letter-spacing="2">3.3 V ONLY</text>
+
+  <rect x="70" y="125" width="340" height="410" rx="24" fill="#0b1723" stroke="#244358" stroke-width="3"/>
+  <text x="240" y="175" text-anchor="middle" fill="#e9f6ff" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700">nRF24L01</text>
+
+  <rect x="790" y="125" width="340" height="410" rx="24" fill="#0b1723" stroke="#244358" stroke-width="3"/>
+  <text x="960" y="175" text-anchor="middle" fill="#e9f6ff" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700">ESP32-S3 AMOLED</text>
+
+  <g font-family="Inter,Arial,sans-serif" font-size="18" fill="#dcecf5">
+    <text x="330" y="225">VCC</text><text x="330" y="270">GND</text><text x="330" y="315">CE</text><text x="330" y="360">CSN</text>
+    <text x="330" y="405">SCK</text><text x="330" y="450">MOSI</text><text x="330" y="495">MISO</text>
+    <text x="820" y="225">3V3</text><text x="820" y="270">GND</text><text x="820" y="315">GPIO15</text><text x="820" y="360">GPIO14</text>
+    <text x="820" y="405">GPIO12</text><text x="820" y="450">GPIO11</text><text x="820" y="495">GPIO13</text>
+  </g>
+
+  <g fill="#091019" stroke="#477087" stroke-width="2">
+    <circle cx="390" cy="219" r="9"/><circle cx="390" cy="264" r="9"/><circle cx="390" cy="309" r="9"/><circle cx="390" cy="354" r="9"/>
+    <circle cx="390" cy="399" r="9"/><circle cx="390" cy="444" r="9"/><circle cx="390" cy="489" r="9"/>
+    <circle cx="810" cy="219" r="9"/><circle cx="810" cy="264" r="9"/><circle cx="810" cy="309" r="9"/><circle cx="810" cy="354" r="9"/>
+    <circle cx="810" cy="399" r="9"/><circle cx="810" cy="444" r="9"/><circle cx="810" cy="489" r="9"/>
+  </g>
+
+  <g fill="none" stroke-width="5" stroke-linecap="round" filter="url(#glow)">
+    <path d="M399 219H801" stroke="#ff5b69"/>
+    <path d="M399 264H801" stroke="#708294"/>
+    <path d="M399 309H801" stroke="#52ffd0"/>
+    <path d="M399 354H801" stroke="#ffcc4a"/>
+    <path d="M399 399H801" stroke="#35e4ff"/>
+    <path d="M399 444H801" stroke="#b78cff"/>
+    <path d="M399 489H801" stroke="#ff8fe0"/>
+  </g>
+
+  <text x="600" y="580" text-anchor="middle" fill="#7691a5" font-family="Inter,Arial,sans-serif" font-size="17">Add a 10–100 µF capacitor directly between VCC and GND at the radio module</text>
+</svg>
