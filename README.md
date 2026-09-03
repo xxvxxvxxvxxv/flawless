@@ -27,6 +27,12 @@ RF Sentinel S3 is a portable, receive-only 2.4 GHz activity monitor built with a
 - No external router, cloud service, or mobile application required
 - Receive-only nRF24L01 operation
 
+## Web dashboard preview
+
+![RF Sentinel S3 web dashboard](assets/dashboard-preview.png)
+
+The preview uses simulated sample values to show the interface. A real deployment updates the graph and statistics directly from the device.
+
 ## System overview
 
 ```mermaid
@@ -120,6 +126,7 @@ rf-sentinel-s3/
 ├── docs/BUILD.md
 ├── docs/TESTING.md
 ├── assets/banner.svg
+├── assets/dashboard-preview.png
 ├── assets/wiring.svg
 ├── CHANGELOG.md
 ├── LICENSE
