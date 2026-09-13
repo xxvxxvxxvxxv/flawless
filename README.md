@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <strong>Portable diagnostics. Local control. Monochrome interface.</strong><br>
+  <strong>Portable diagnostics. Local control.</strong><br>
   ESP32-S3 · Wi-Fi · BLE · USB · Optional nRF24L01+
 </p>
 
