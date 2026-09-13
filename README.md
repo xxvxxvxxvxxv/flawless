@@ -1,14 +1,23 @@
 # flawless
 
-![flawless Hannya mark and horror wordmark](branding/cover.png)
+![flawless katana banner](branding/cover.png)
 
-A local ESP32-S3 diagnostic instrument with a monochrome Hannya dashboard, AMOLED display, and optional nRF24L01+ radio. **Version 1.0.0-rc1: target compiled and host tested; physical board acceptance is still required.** See [VALIDATION.md](VALIDATION.md) for evidence and remaining hardware checks.
+A local ESP32-S3 diagnostic instrument with a monochrome katana dashboard, AMOLED display, and optional nRF24L01+ radio. **Version 1.0.0-rc2 is a development build, not a finished hardware release.** The preceding build uploaded successfully and the user reports improved operation; feature acceptance remains incomplete. See [VALIDATION.md](VALIDATION.md) for evidence and remaining hardware checks.
+
+## Current status
+
+- **Reported working:** firmware upload and access to the local dashboard on the preceding build.
+- **Current hardware:** ESP32-S3 without an nRF24. Spectrum, waterfall, decoded nRF24 capture and nRF24 link testing require that external radio; the ESP32 Wi-Fi scan is a separate feature.
+- **Open issue:** user reports an empty Wi-Fi network list. Investigation is deferred, not marked fixed.
+- **Lab Beacons:** still limited to **4 SSIDs**, 10 cycles/s and 60 seconds. A request for 20–30 SSIDs is tracked for a later firmware review; this branding update does not implement it. Driver acceptance is not proof of over-air reception.
+
+See [KNOWN_ISSUES.md](KNOWN_ISSUES.md) for the next engineering pass and [VALIDATION.md](VALIDATION.md) for checks actually performed.
 
 ## Start here
 
 1. Extract the project and open **`firmware/flawless/flawless.ino`** in Arduino IDE. All its `.h` files must remain in that same directory. Close older copies of the sketch.
 2. Install the exact core and libraries below. Select the listed settings and upload.
-3. Connect to **`flawless-xxxxxx`**, password **`observe24`**, then open **http://192.168.4.1**. The dashboard should say **UI · flawless-1.0.0-rc1**. Diagnostics also shows firmware **1.0.0-rc1**; compare both to detect an old flashed sketch or browser page.
+3. Connect to **`flawless-xxxxxx`**, password **`observe24`**, then open **http://192.168.4.1**. The dashboard should say **UI · flawless-1.0.0-rc2**. Diagnostics also shows firmware **1.0.0-rc2**; compare both to detect an old flashed sketch or browser page.
 4. Check **Diagnostics**: access point and display ready, loop count increasing, PSRAM nonzero, SPI register PASS if the nRF24 is fitted. Missing nRF24 does not disable Wi-Fi/BLE/USB or the web server.
 5. If Storage is unavailable on a new or repartitioned device, use **Initialize unavailable storage** in Diagnostics. It asks for confirmation because formatting deletes the existing filesystem. Normal boot never automatically formats it.
 
@@ -132,12 +141,12 @@ The command records build settings explicitly, so they do not depend on whicheve
 
 ## Upload to GitHub
 
-Extract this ZIP. The repository contents are the files **inside `flawless/`**. In GitHub Desktop, clone your existing repository, copy these contents into it, review the Changes tab, commit, and push. Remove the obsolete `firmware/oni_sentinel` directory from that repository so there is one authoritative sketch. For a new repository, add this extracted folder in GitHub Desktop and Publish repository. Do not upload only a firmware binary or the ZIP as the source tree.
+Extract this ZIP. The repository contents are the files **inside `flawless/`**. In GitHub Desktop, clone your existing repository, copy these contents into it, review the Changes tab, commit, and push. Remove any obsolete `firmware/oni_sentinel` or `firmware/rf_sentinel_s3` directory from that repository so there is one authoritative sketch. For a new repository, add this extracted folder in GitHub Desktop and Publish repository. Do not upload only a firmware binary or the ZIP as the source tree.
 
 The original `oni` C++ namespace, nRF24 protocol signature, capture address and `X-Oni-Token` header remain for compatibility; product branding, AP name, sketch directory and download names are `flawless`.
 
 ## License and access model
 
-Code: [MIT](LICENSE). The new vector Hannya artwork is included with the project. The outlined horror wordmark uses Metal Mania, with its [SIL Open Font License and attribution](branding/FONT-LICENSE.txt). Branding is embedded and works without Internet access.
+Code: [MIT](LICENSE). The approved generated katana artwork is included as `branding/katana.png` and embedded directly in the dashboard. The banner uses the same unmodified artwork. Earlier vector artwork is retained as source history; its Metal Mania wordmark retains its [SIL Open Font License and attribution](branding/FONT-LICENSE.txt). Active branding works without Internet access.
 
 The dashboard is local HTTP on a password-protected AP. Its per-boot control token protects control requests from accidental/replayed UI actions; any connected client can obtain it. It is not a user-account authentication system. Change the default AP password in `setup()` for your deployment. Use observation and transmission features with your own equipment in an authorized test area.

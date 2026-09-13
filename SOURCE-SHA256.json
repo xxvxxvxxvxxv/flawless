@@ -1,7 +1,13 @@
 {
+  "branding/FONT-LICENSE.txt": "4e66943af352059c059dd658774f25fbc831f1ad478f9f0890c06ecc2dd324c7",
+  "branding/cover.png": "b2d579a557ce21906e16c97d8312c520d4d251908aa4503b11c58fb13bff28dc",
+  "branding/cover.svg": "558e6f2b0887e5b4dd72087a881b11d0adc2d2494afe304cba92f8bf075264a3",
+  "branding/hannya.svg": "68cbf11de7e098eee4fb9118f8c37446d854c00ed7c655c5e7f04f15cef37437",
+  "branding/katana.png": "5227747ac56f99c6fd861c567b528ba28b3783f40aaac9743187db6ddcf6aa09",
+  "branding/wordmark.svg": "53f860829d39cf3a672f2fda0758aa1792a138f0098db94fd43805d9395043ee",
   "firmware/flawless/advanced_modules.h": "7080fd8fc9587c9e97a0783773feb1e8cb72954405256ab1046654ee495da0b3",
   "firmware/flawless/analysis.h": "20bed1aef77bab0fbe33d79fd5bb134beec57018352303fd91dfbdda52a6531b",
-  "firmware/flawless/build_config.h": "3e19341680e569e8ac9cce6e02b3e4f51c6100d6da55738fbde257340c64f016",
+  "firmware/flawless/build_config.h": "71c41bff01a9870f2429ce6d04050d3d371a99e628647f194cd064b6b49768e6",
   "firmware/flawless/diagnostic_modules.h": "6cf73a3e4398e5ef84f14b30d4c121e601c7161df26e126f4dffa59ef91578d5",
   "firmware/flawless/fat12_snapshot.h": "3bdf2106bd2cf0e186442aee0e83f262d0297fe5ac772ca1ae0d00dba19ba2a3",
   "firmware/flawless/flawless.ino": "d7e37083c36ac3a0bae387a5fe380131280ff37b031685a7ed81d25c60491941",
@@ -9,13 +15,8 @@
   "firmware/flawless/lab_beacon.h": "0143ad9559687145415b769ec353d784d3de6856b879d888b66784f53c7cfc3b",
   "firmware/flawless/link_test.h": "82d27ec52c4f0429e76946f2357dcac38e2bd8e7b746e042e57438cfa65020d6",
   "firmware/flawless/macro_script.h": "1607d65dcfe3e3a503e6387ed02131fbfc995e4962eb0342169511c5efe9dcc7",
-  "firmware/flawless/panel.h": "6dcb90d355ba410aac57b509410f829ce1a4f1b2bfcbb6218bbab183b7a8646a",
+  "firmware/flawless/panel.h": "6989988aee1dc1f51c464f2fb02982bf971b42035aad93d41e517074e38981f0",
   "firmware/flawless/telemetry.h": "0c4efd2e584ea8ac56a913970e8e40e936e4faeb94eecdacb150457cc62b182a",
-  "web/index.html": "d0c1756d51d84e6fbff403a23b7855bf41b032f1e43133f620204705ad3cc439",
-  "web/webusb.html": "0ba7e1dc6ead548156fc77ee986f69f81d2dffeaf72fe26fee24b8ea7c27e785",
-  "branding/FONT-LICENSE.txt": "4e66943af352059c059dd658774f25fbc831f1ad478f9f0890c06ecc2dd324c7",
-  "branding/cover.png": "5f15b73a74a6d6c88915cca06fb7f157074f44f26b10585c66a7b09f05518199",
-  "branding/cover.svg": "858250a3dbffa7356c3503917bc88fbe5418b0c3df586b6b030d0ecab13c7da6",
-  "branding/hannya.svg": "68cbf11de7e098eee4fb9118f8c37446d854c00ed7c655c5e7f04f15cef37437",
-  "branding/wordmark.svg": "53f860829d39cf3a672f2fda0758aa1792a138f0098db94fd43805d9395043ee"
+  "web/index.html": "6858add9b7879c86e3b69fc282fd62e126983c23b382f7dcc8d743fbaa553f21",
+  "web/webusb.html": "0ba7e1dc6ead548156fc77ee986f69f81d2dffeaf72fe26fee24b8ea7c27e785"
 }

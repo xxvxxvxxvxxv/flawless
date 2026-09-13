@@ -1,4 +1,4 @@
-# Validation — flawless 1.0.0-rc1
+# Validation — flawless 1.0.0-rc2
 
 ## What passed
 
@@ -13,7 +13,7 @@ esp32:esp32:esp32s3:USBMode=default,CDCOnBoot=cdc,FlashSize=16M,PSRAM=opi,Partit
 Compiler output:
 
 ```text
-Sketch uses 1536883 bytes (45%) of program storage space. Maximum is 3342336 bytes.
+Sketch uses 1971635 bytes (58%) of program storage space. Maximum is 3342336 bytes.
 Global variables use 116824 bytes (35%) of dynamic memory, leaving 210856 bytes for local variables. Maximum is 327680 bytes.
 
 ```
@@ -31,7 +31,17 @@ Six C++ test executables passed under C++11 with `-Wall -Wextra -Werror`:
 
 Both browser scripts passed Node syntax checks. `panel.h` matches `web/index.html` exactly. The JSDOM integration suite passed 20 consecutive live polls, offline timeout/reconnect, control identity/caret/draft retention, changing macro slots including empty slot 0, live counters, arming expiry, correct save/start payloads, WebSocket updates, all 16 tabs, and loaded session report retention.
 
-The Hannya and outlined wordmark SVGs were rasterized and visually inspected. The included cover uses those same assets. `SOURCE-SHA256.json` identifies the firmware, web and artwork files used for this release.
+The approved katana PNG is embedded intact in the dashboard and banner. The native SVG banner was rendered and visually inspected. Branding increases application flash usage; static RAM remains unchanged at 116,824 bytes. `SOURCE-SHA256.json` identifies the firmware, web and artwork files used for this release.
+
+## User-reported observations on the preceding build
+
+- Successful firmware upload and access to the local dashboard.
+- User reports improved operation, but not completion of all feature tests.
+- nRF24 is no longer connected; the Spectrum screenshot correctly reports no RF data.
+- User reports an empty Wi-Fi scan list; unresolved and deferred.
+- Lab Beacons screenshot reports RUNNING, ESP_OK, zero errors and per-SSID accepted counts. This is not proof of independent reception.
+
+The rc2 branding build above has not yet been flashed or physically tested by the user. See KNOWN_ISSUES.md for deferred work.
 
 ## What has not been verified
 

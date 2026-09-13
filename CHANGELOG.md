@@ -1,3 +1,11 @@
+# Changes in flawless 1.0.0-rc2
+
+- Applied the approved katana artwork to the dashboard and GitHub banner.
+- Updated responsive header, device description and development-build identification.
+- Recorded empty Wi-Fi discovery, absent nRF24 spectrum and requested beacon capacity in KNOWN_ISSUES.md.
+- Kept feature limits and diagnostic runtime behavior unchanged for this presentation update.
+- Updated validation evidence to distinguish host checks from user-reported hardware observations.
+
 # Changes in flawless 1.0.0-rc1
 
 This is a repair and rebrand of the uploaded Oni Sentinel source, not a claim of completed physical certification.

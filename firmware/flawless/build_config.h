@@ -1,7 +1,7 @@
 #pragma once
 #include <soc/soc_caps.h>
 #include <sdkconfig.h>
-#define FLAWLESS_VERSION "1.0.0-rc1"
+#define FLAWLESS_VERSION "1.0.0-rc2"
 // Set to 0 only for an ESP32-only build. Wi-Fi, BLE and USB remain available.
 #ifndef FLAWLESS_ENABLE_NRF
 #define FLAWLESS_ENABLE_NRF 1
