@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>flawless · USB diagnostics</title><style>body{background:#000;color:#eee;font:15px monospace;max-width:850px;margin:40px auto;padding:20px}button{background:#000;color:white;border:1px solid #aaa;padding:14px;margin:5px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>flawless / USB diagnostics</h1><p>Serve this directory on localhost. Connect the device by a USB data cable.</p><button id="connect">Connect USB</button><button id="register" disabled>Register test</button><button id="snapshot" disabled>Read JSON snapshot</button><pre id="output">Disconnected</pre><script>
+let device,iface,input,output,busy=false;
+const status=document.getElementById('output');
+document.getElementById('connect').onclick=async()=>{try{
+ if(!navigator.usb)throw Error('Use Chrome or Edge on localhost; WebUSB is unavailable here.');
+ device=await navigator.usb.requestDevice({filters:[{vendorId:0x303a}]});await device.open();if(!device.configuration)await device.selectConfiguration(1);
+ const found=device.configuration.interfaces.flatMap(i=>i.alternates.map(a=>({i,a}))).find(({a})=>a.interfaceClass===255&&a.endpoints.some(e=>e.direction==='in'&&e.type==='bulk')&&a.endpoints.some(e=>e.direction==='out'&&e.type==='bulk'));
+ if(!found)throw Error('Vendor bulk interface missing. Flash the TinyUSB build.');iface=found.i.interfaceNumber;
+ await device.claimInterface(iface);if(found.a.alternateSetting)await device.selectAlternateInterface(iface,found.a.alternateSetting);
+ input=found.a.endpoints.find(e=>e.direction==='in').endpointNumber;output=found.a.endpoints.find(e=>e.direction==='out').endpointNumber;
+ status.textContent='Connected';document.getElementById('register').disabled=document.getElementById('snapshot').disabled=false;
+}catch(e){status.textContent=e.message;}};
+async function command(c){if(busy)return;busy=true;status.textContent='Reading…';let text='';let timeout;const decoder=new TextDecoder();
+try{timeout=setTimeout(()=>{if(device?.opened)device.close().catch(()=>{});},10000);const sent=await device.transferOut(output,new TextEncoder().encode(c));if(sent.status!=='ok')throw Error('USB write failed');
+while(!text.endsWith('\n')){const r=await device.transferIn(input,64);if(r.status!=='ok'||!r.data)throw Error('USB read failed');text+=decoder.decode(r.data,{stream:true});if(text.length>1000000)throw Error('Response too large');}
+try{status.textContent=JSON.stringify(JSON.parse(text),null,2);}catch(_){status.textContent=text;}
+}catch(e){status.textContent=e.message;}finally{clearTimeout(timeout);busy=false;}}
+document.getElementById('register').onclick=()=>command('d');document.getElementById('snapshot').onclick=()=>command('i');
+if(navigator.usb)navigator.usb.addEventListener('disconnect',()=>{document.getElementById('register').disabled=document.getElementById('snapshot').disabled=true;status.textContent='Disconnected';});
+</script></html>

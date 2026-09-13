@@ -1,29 +1,18 @@
-# Changelog
+# Changes in flawless 1.0.0-rc1
 
-## 1.1.0 — 2026-09-03
+This is a repair and rebrand of the uploaded Oni Sentinel source, not a claim of completed physical certification.
 
-- Added labeled frequency and activity axes to the spectrum graph.
-- Added a six-step 2400–2525 MHz frequency scale.
-- Added persistent mode tabs with a highlighted active function.
-- Improved waterfall and Wi-Fi page labeling.
+- Replaced periodic whole-panel rebuilds with mounted controls and live status updates. Dropdowns, textarea selection/caret, beacon inputs and session reports survive polling, timeouts and WebSocket traffic. Macro drafts are isolated by slot; saved scripts load from the firmware.
+- Replaced optional-header guessing with explicit BLE/WebSocket/MQTT feature switches so Arduino library discovery includes the actual implementations. USB HID availability and host readiness are separate status fields.
+- Moved BLE and Wi-Fi callback observations through a bounded FreeRTOS queue. The main loop owns String tables and circular storage. Buffers allocate in PSRAM with failure reporting, instead of exhausting static DRAM.
+- Corrected microsecond timestamps used by IAT, frame CSV channel reporting/quoting, field-marker wraparound and peak-channel selection. Binary manufacturer data retains zero bytes.
+- Added diagnostic mode exclusions, asynchronous BLE scanning, incremental keyboard typing with focus delay and cancellation, and observation pause/resume around active tests.
+- Corrected beacon supported-rate information elements. Every cycle visits every configured SSID. Worker startup uses a dedicated queue, separate from cancellation notifications. Stop/completion returns control to monitoring. Exposed driver errors and per-SSID acceptance; retained finite lab limits.
+- Moved broker connection and MQTT publishing to a separate core-0 worker with a bounded queue and connection timeouts. Broker targets can be AP-connected computers; no nonexistent station connection is required.
+- Rebuilt USB snapshot as valid FAT12 with correct cluster chains, directory records and read bounds. Added explicit refresh, read-only handling and purge invalidation. Added a WebUSB browser client and chunked firmware responses.
+- Added opt-in rotating LittleFS telemetry journal and explicit storage initialization. Macro writes use a temporary file and rename. Normal boot does not format storage.
+- Purge now stops producers and waits for background workers before clearing buffers/files. Failed cleanup leaves the board awake and reports the error. Light sleep pauses/restores radios only while idle and disconnected.
+- Added firmware/version, startup, reset, display, AP, loop, PSRAM, queue-drop, storage, USB and transport status so failures are visible.
+- Renamed product/AP/sketch to flawless. Replaced the header logo with an angular horned Hannya and a locally embedded horror wordmark. Added a GitHub cover, exact build settings, feature acceptance checklist and pinned CI build.
 
-## 1.0.3 — 2026-09-03
-
-- Fixed Arduino_GFX color compatibility by using explicit RGB565 values.
-
-## 1.0.2 — 2026-09-03
-
-- Restored manual page switching with the board's built-in GPIO0 BOOT button.
-
-## 1.0.1 — 2026-09-03
-
-- Removed the BOOT button dependency.
-- Added automatic AMOLED page rotation every eight seconds.
-
-## 1.0.0 — 2026-09-03
-
-- Added 126-channel receive-only RF activity scanning.
-- Added AMOLED spectrum and waterfall views.
-- Added nearby Wi-Fi context view.
-- Added local responsive dashboard.
-- Added hardware, installation, and validation documentation.
+RF-Clown interference routines are not merged. nRF24 remains only where its radio/protocol is required; ESP32 owns Wi-Fi, BLE, USB and networking.
